@@ -1,0 +1,8 @@
+README.md
+setup.py
+python-anopi/__init__.py
+python_anopi.egg-info/PKG-INFO
+python_anopi.egg-info/SOURCES.txt
+python_anopi.egg-info/dependency_links.txt
+python_anopi.egg-info/requires.txt
+python_anopi.egg-info/top_level.txt
