@@ -2,6 +2,7 @@
 # python-anopi
 ## General
 ### This is a library for the implementation of the AnoPi Header in a python environment
+### https://shop.frappgmbh.de/AnoPi-Raspberry-Header
 ## Installation
 ```
 pip install python-anopi
