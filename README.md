@@ -55,3 +55,18 @@ print('level: {value}% '.format(value=value))
 
 ### Current loop
 ![current loop wiring](/examples/wiring/currentloop.PNG)
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Contact
+
+info@frappgmbh.de
+
+Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
