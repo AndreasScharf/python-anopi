@@ -13,7 +13,7 @@ https://www.raspberrypi-spy.co.uk/2014/11/enabling-the-i2c-interface-on-the-rasp
 
 ## Usage
 ### Read analog input current loop e.g. (4 - 20mA)
-This code example is for the usage of a current loop sensor. 
+This code example is for the usage of a current loop sensor. \nThe sensor offset can range from 0-3.
 ```
 from python_anopi import AnoPi
 
