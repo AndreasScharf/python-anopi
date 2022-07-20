@@ -66,7 +66,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 info@frappgmbh.de
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/AndreasScharf/python-anopi](https://github.com/AndreasScharf/python-anopi)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
