@@ -48,3 +48,6 @@ value, err = a.scale_value(AnalogInputType.mA_4_20, value, min=0, max=100)
 
 print('level: {value}% '.format(value=value))
 ```
+## Electrical wiring
+### !!!Warning!!! Industrial level voltages and currents can be hazardous, only assable this if you are a trained expert and know what you are doing.
+
