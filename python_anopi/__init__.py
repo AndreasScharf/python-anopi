@@ -1,6 +1,7 @@
 from ina219 import INA219
 from ina219 import DeviceRangeError
 from enum import Enum
+import RPi.GPIO as GPIO
 
 """
 python-anopi.
@@ -33,13 +34,26 @@ class AnoPi(object):
             if offset >= 2:
                 offset = offset + 2
             try:
-                ina = INA219(self.ohm_shunt, max_current, None, address=(0x40 + offset))
+                ina = INA219(self.ohm_shunt, max_current, busnum=1, address=(0x40 + offset))
                 ina.configure(ina.RANGE_32V, ina.GAIN_AUTO)
                 self.inas.append(ina)
-            except:
+            except Exception as e:
+                print(e)
                 print(self.e_msg_anopi)
+                
+        mode = GPIO.getmode()
         
-            
+        if mode == GPIO.BOARD:
+            self.pinDI0 = 7
+            self.pinDI1 = 11
+            self.pinDI2 = 13
+            self.pinDI3 = 15
+        else:
+            self.pinDI0 = 4
+            self.pinDI1 = 17
+            self.pinDI2 = 27
+            self.pinDI3 = 22
+
         
     def ai_mA(self, index):
         if 0 > index < 4:
@@ -57,15 +71,19 @@ class AnoPi(object):
         return (self.inas[index].voltage(), None)
     
     def scale_value(self, input_type, value, min, max):
+        print(input_type)
         a = 4
         b = 20
-        if input_type == 2:
+        if input_type == AnalogInputType.mA_4_20 and value < a * 0.9:
+            return (None, self.e_msg_current_loop)
+        
+        if input_type == AnalogInputType.mA_0_20:
             a = 0
-        elif input_type == 3:
+        elif input_type == AnalogInputType.v_0_10:
             a = 0
             b = 10
         
         m = (max - min) / (b - a)
         t = min - m * a
         
-        return value * m + t
+        return (value * m + t, None)
