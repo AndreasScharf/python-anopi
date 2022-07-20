@@ -1,7 +1,7 @@
 
 # python-anopi
 ## General
-### This is a library for the implementation of the AnpPi Header in a python environment
+### This is a library for the implementation of the AnoPi Header in a python environment
 ## Installation
 ```
 pip install python-anopi
@@ -31,4 +31,20 @@ a = AnoPi()
 value, err = a.ai_V(0) # For Analog Input 0
 print('AI 0: {value}V'.format(value=value))
 
+```
+### Analog input scaling
+In most applications current loop representing a scale from a sensor e.g. a level meter for a tank.
+For these application we provided a simple function which let`s you scale your messurements
+
+```
+from python_anopi import AnoPi
+from python_anopi import AnalogInputType 
+
+a = AnoPi()
+
+value, err = a.ai_V(0) # For Analog Input 0
+
+value, err = a.scale_value(AnalogInputType.mA_4_20, value, min=0, max=100)
+
+print('level: {value}% '.format(value=value))
 ```
