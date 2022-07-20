@@ -53,4 +53,4 @@ print('level: {value}% '.format(value=value))
 ### !!!Warning!!! Industrial level voltages and currents can be hazardous, only assable this if you are a trained expert and know what you are doing.
 
 ### Current loop
-![current loop wiring](/examples/wiring/currentloop.png)
+![current loop wiring](/examples/wiring/currentloop.PNG)
