@@ -54,11 +54,11 @@ print('level: {value}% '.format(value=value))
 ### !!!Warning!!! Industrial level voltages and currents can be hazardous, only assable this if you are a trained expert and know what you are doing.
 
 ### Current loop
-![current loop wiring](/examples/wiring/Anschluss Stromschleife.PNG)
+![current loop wiring](/examples/wiring/Anschluss_Stromschleife.PNG)
 
 ### Voltage messurement
 
-![Voltage messurement wiring](/examples/wiring/Anschluss Spannungspegel.PNG)
+![Voltage messurement wiring](/examples/wiring/Anschluss_Spannungspegel.PNG)
 
 ## License
 
