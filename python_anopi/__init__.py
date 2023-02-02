@@ -61,7 +61,7 @@ class AnoPi(object):
         if not len(self.inas):
             return (None, self.e_msg_anopi)
 
-        return (self.inas[index].voltage(), None)
+        return (self.inas[index].current(), None)
     def ai_V(self, index):
         if 0 > index < 4:
             return (None, self.e_msg_index)

@@ -8,8 +8,8 @@
 pip install python-anopi
 ```
 ## Get started
-### The most important thing is, that you need to activiate I2C on Raspberry Pi
-For futher Information have a look at that link
+### The most important thing is, that you need to activate I2C on Raspberry Pi
+For further Information have a look at that link
 https://www.raspberrypi-spy.co.uk/2014/11/enabling-the-i2c-interface-on-the-raspberry-pi/
 
 ## Usage
@@ -35,8 +35,8 @@ print('AI 0: {value}V'.format(value=value))
 
 ```
 ### Analog input scaling
-In most applications current loop representing a scale from a sensor e.g. a level meter for a tank.
-For these application we provided a simple function which let`s you scale your messurements
+In most applications current loop representing a scale from a sensor e.g., a level meter for a tank.
+For this application we provided a simple function which lets you scale your measurements
 
 ```
 from python_anopi import AnoPi
@@ -51,14 +51,14 @@ value, err = a.scale_value(AnalogInputType.mA_4_20, value, min=0, max=100)
 print('level: {value}% '.format(value=value))
 ```
 ## Electrical wiring
-### !!!Warning!!! Industrial level voltages and currents can be hazardous, only assable this if you are a trained expert and know what you are doing.
+### !!!Warning!!! Industrial level voltages and currents can be hazardous, only assemble this if you are a trained expert and know what you are doing.
 
 ### Current loop
 ![current loop wiring](/examples/wiring/Anschluss_Stromschleife.PNG)
 
-### Voltage messurement
+### Voltage measurement 
 
-![Voltage messurement wiring](/examples/wiring/Anschluss_Spannungspegel.PNG)
+![Voltage measurement  wiring](/examples/wiring/Anschluss_Spannungspegel.PNG)
 
 ## License
 
