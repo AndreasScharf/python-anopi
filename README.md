@@ -1,7 +1,8 @@
 
 # python-anopi
 ## General
-### This is a library for the implementation of the AnoPi Header in a python environment
+### Raspberry Pi 4-20mA, 0-10V analog input 
+Experience the versatility and efficiency of industrial sensor connectivity with our Raspberry Pi Shield. With the ability to read both 4-20mA and 0-10V analog inputs through a single interface, monitoring and control have never been simpler. Plus, our included open-source Python library gives you the power to customize and automate your sensor interactions to fit your specific needs. Upgrade your IoT setup today with the ultimate Raspberry Pi Shield for industrial sensor interfacing
 ### https://shop.frappgmbh.de/AnoPi-Raspberry-Header
 ## Installation
 ```
