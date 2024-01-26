@@ -5,7 +5,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='python_anopi',
-    version='0.2.1',
+    version='0.3.1',
     long_description=long_description,
     long_description_content_type='text/markdown',
     
