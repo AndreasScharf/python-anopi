@@ -75,15 +75,19 @@ A tuple containing the scaled value and an error message:
 #### Example
 
 ```python
-from your_module import AnalogInputType, scale_value
+from python_anopi import AnoPi, AnalogInputType
+
+a = AnoPi()
 
 # Example 1: Scaling a 4-20mA analog input
-value, err = scale_value(AnalogInputType.mA_4_20, 15.0, min=10, max=90)
+raw_value, err = a.ai_mA(0) # read analog input channel 0: 15mA
+value, err = a.scale_value(AnalogInputType.mA_4_20, raw_value, min=10, max=90)
 print(value)  # Output: 50.0
 print(err)    # Output: None
 
 # Example 2: Scaling a 0-20mA analog input with cutoff disabled
-value, err = scale_value(AnalogInputType.mA_0_20, 18.0, min=0, max=100, cutoff=False)
+raw_value, err = a.ai_mA(1) # read analog input channel 1: 18mA
+value, err = a.scale_value(AnalogInputType.mA_0_20, raw_value, min=0, max=100, cutoff=False)
 print(value)  # Output: 90.0
 print(err)    # Output: None
 ```
