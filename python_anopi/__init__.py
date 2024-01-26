@@ -45,7 +45,7 @@ class AnalogInputType(Enum):
 class AnoPi(object):
     def __init__(self , adresses=[0x40, 0x41, 0x44, 0x45]):
         self.ohm_shunt = 0.5  # standardwert für den eingebauten Shunt, später dann 0.5 Ohm
-        max_current = 0.1
+        max_current = 0.08
         
         #error Messages
         self.e_msg_anopi = 'Err: No AnoPi Hat attached'
@@ -68,7 +68,7 @@ class AnoPi(object):
                     ina = INA219(self.ohm_shunt, max_current, busnum=1, address=adresses[i])
                 else:
                     ina = INA219(self.ohm_shunt, max_current, busnum=1, address=(0x40 + offset))
-                ina.configure(ina.RANGE_32V, ina.GAIN_AUTO)
+                ina.configure(ina.RANGE_16V, ina.GAIN_1_40MV)
                 self.inas.append(ina)
             except Exception as e:
                 print(e)

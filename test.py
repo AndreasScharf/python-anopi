@@ -9,7 +9,7 @@ for i in range(4):
     
     
     raw_value, err = a.ai_mA(i)
-    value, err = a.scale_value(AIT.mA_4_20, raw_value, 0, 100)
+    value, err = a.scale_value(AIT.mA_0_20, raw_value, 0, 100)
     print('AI {index}: {raw_value}mA {value}'.format(index=i, raw_value=raw_value, value=value))
     value, err = a.ai_V(i)
     print('AI {index}: {value}V \n'.format(index=i, value=value))
