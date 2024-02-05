@@ -93,7 +93,49 @@ print(err)    # Output: None
 ```
 
 
+### Digital Input (9-30V) GPIO Pin Configurations
 
+The Digital Input PINs can be used as normal GPIOs of the Raspberry Pi. Connect the DI0+ to the 9-30V Signal and DI0- to your GND.
+Depending on the GPIO mode (`GPIO.BOARD` or `GPIO.BCM`), the digital input pins are configured as follows:
+
+### GPIO.BOARD Mode:
+
+- `pinDI0`: 7
+- `pinDI1`: 11
+- `pinDI2`: 13
+- `pinDI3`: 15
+
+### GPIO.BCM Mode:
+
+- `pinDI0`: 4
+- `pinDI1`: 17
+- `pinDI2`: 27
+- `pinDI3`: 22
+
+## Example: Using Digital Input in GPIO.BOARD Mode
+
+Here's an example of using the digital input `pinDI0` in `GPIO.BOARD` mode with the RPi.GPIO library:
+
+```python
+import RPi.GPIO as GPIO
+from python_anopi import AnoPi
+
+# Set up GPIO mode
+GPIO.setmode(GPIO.BOARD)
+
+a = AnoPi()
+# Set up the pin for digital input
+# Assuming you want to use pinDI0 in GPIO.BOARD mode
+GPIO.setup(a.pinDI0, GPIO.IN)
+
+# Example: Reading digital input
+digital_input_value = GPIO.input(a.pinDI0)
+
+print(digital_input_value) 
+
+# Clean up GPIO settings
+GPIO.cleanup()
+```
 
 ## Electrical wiring
 ### !!!Warning!!! Industrial level voltages and currents can be hazardous, only assemble this if you are a trained expert and know what you are doing.

@@ -1,12 +1,13 @@
 Metadata-Version: 2.1
-Name: python-anopi
-Version: 0.2.1
+Name: python_anopi
+Version: 0.3.1
 Home-page: https://github.com/AndreasScharf/python-anopi
 Author: Andreas Scharf
 Author-email: info@frappgmbh.de
 License: MIT
 Description-Content-Type: text/markdown
 License-File: LICENSE.txt
+Requires-Dist: pi-ina219
 
 
 # python-anopi
@@ -61,15 +62,59 @@ value, err = a.scale_value(AnalogInputType.mA_4_20, value, min=0, max=100)
 
 print('level: {value}% '.format(value=value))
 ```
+
+### Function: scale_value
+
+#### Description
+
+The `scale_value` function is designed to scale raw analog input values based on the specified input type. This is useful when working with different types of analog sensors that provide input signals within specific ranges. The function utilizes an enum called `AnalogInputType` to define the input types. The scaling is performed linearly between a minimum and maximum scaled value.
+
+#### Parameters
+
+- `input_type` (AnalogInputType): The type of analog input signal, such as `AnalogInputType.mA_4_20`.
+- `raw_value` (float): The raw analog input value to be scaled.
+- `min` (float): The minimum scaled value. Defaults to 0.
+- `max` (float): The maximum scaled value. Defaults to 100.
+- `cutoff` (boolean, default=True): If set to True, the scaled value is constrained to be within the specified range (min to max).
+
+### Returns
+
+A tuple containing the scaled value and an error message:
+- Scaled Value (float): The scaled output value between `min` and `max`.
+- Error Message (str): An empty string if successful, or an error message if any issues occur during scaling.
+
+#### Example
+
+```python
+from python_anopi import AnoPi, AnalogInputType
+
+a = AnoPi()
+
+# Example 1: Scaling a 4-20mA analog input
+raw_value, err = a.ai_mA(0) # read analog input channel 0: 15mA
+value, err = a.scale_value(AnalogInputType.mA_4_20, raw_value, min=10, max=90)
+print(value)  # Output: 50.0
+print(err)    # Output: None
+
+# Example 2: Scaling a 0-20mA analog input with cutoff disabled
+raw_value, err = a.ai_mA(1) # read analog input channel 1: 18mA
+value, err = a.scale_value(AnalogInputType.mA_0_20, raw_value, min=0, max=100, cutoff=False)
+print(value)  # Output: 90.0
+print(err)    # Output: None
+```
+
+
+
+
 ## Electrical wiring
 ### !!!Warning!!! Industrial level voltages and currents can be hazardous, only assemble this if you are a trained expert and know what you are doing.
 
 ### Current loop
-![current loop wiring](../examples/wiring/Anschluss_Stromschleife.PNG)
+![current loop wiring](/examples/wiring/Anschluss_Stromschleife.PNG)
 
 ### Voltage measurement 
 
-![Voltage measurement  wiring](../examples/wiring/Anschluss_Spannungspegel.PNG)
+![Voltage measurement  wiring](/examples/wiring/Anschluss_Spannungspegel.PNG)
 
 ## License
 
