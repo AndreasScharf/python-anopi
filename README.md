@@ -93,7 +93,7 @@ print(err)    # Output: None
 ```
 
 
-## Digital Input (9-30V) GPIO Pin Configurations
+## Digital Input (9-30V) GPIO Pin Configurations (* only AnoDiPi)
 
 The Digital Input PINs can be used as normal GPIOs of the Raspberry Pi. Connect the `DI0+` to the 9-30V Signal and `DI0-` to the GND.
 Depending on the GPIO mode (`GPIO.BOARD` or `GPIO.BCM`), the digital input pins are configured as follows:
