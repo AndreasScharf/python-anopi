@@ -1,5 +1,7 @@
+LICENSE.TXT
 LICENSE.txt
 README.md
+pyproject.toml
 setup.py
 python_anopi/__init__.py
 python_anopi.egg-info/PKG-INFO

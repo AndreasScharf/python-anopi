@@ -9,7 +9,7 @@ python-anopi.
 A python library for AnoPi Hat.
 """
 
-__version__ = "0.3.1"
+__version__ = "0.4.1"
 __author__ = 'Andreas Scharf'
 __credits__ = 'frapp GmbH'
 
@@ -43,7 +43,7 @@ class AnalogInputType(Enum):
     v_0_45 = 4
     
 class AnoPi(object):
-    def __init__(self , adresses=[0x40, 0x41, 0x44, 0x45]):
+    def __init__(self , adresses=[0x40, 0x41, 0x44, 0x45], high_resolution=True):
         self.ohm_shunt = 0.5  # standardwert für den eingebauten Shunt, später dann 0.5 Ohm
         max_current = 0.08
         
@@ -68,7 +68,13 @@ class AnoPi(object):
                     ina = INA219(self.ohm_shunt, max_current, busnum=1, address=adresses[i])
                 else:
                     ina = INA219(self.ohm_shunt, max_current, busnum=1, address=(0x40 + offset))
-                ina.configure(ina.RANGE_16V, ina.GAIN_1_40MV)
+                
+                # configure the sample rate to the highest resulution
+                if high_resolution:
+                    ina.configure(ina.RANGE_16V, ina.GAIN_AUTO, ina.ADC_128SAMP, ina.ADC_128SAMP)
+                else:
+                    ina.configure(ina.RANGE_16V, ina.GAIN_1_40MV)
+
                 self.inas.append(ina)
             except Exception as e:
                 print(e)
